@@ -28,6 +28,9 @@ abstract class Decorator implements PrinterInterface{
 	public Decorator(PrinterInterface component) {
 		this.component = component;
 	}
+	public void print() {
+		component.print();
+	}
 }
 class QuotesDecorator extends Decorator{ 
 	public QuotesDecorator(PrinterInterface component) {
@@ -36,7 +39,7 @@ class QuotesDecorator extends Decorator{
 	@Override
 	public void print() {
 		System.out.print("\"");
-		component.print();
+		super.print();
 		System.out.print("\"");
 	}
 }
@@ -48,7 +51,7 @@ class LeftBracketDecorator extends Decorator{
 	@Override
 	public void print() {
 		System.out.print("[");
-		component.print();
+		super.print();
 	}
 }
 
@@ -58,7 +61,7 @@ class RightBracketDecorator extends Decorator{
 	}
 	@Override
 	public void print() {
-		component.print();
+		super.print();
 		System.out.print("]");
 	}
 }
