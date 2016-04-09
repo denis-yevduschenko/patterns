@@ -2,7 +2,7 @@ package patterns;
 
 public class SingletonApp {
 	public static void main(String[] args){
-		//Error: doesn't exist visible constructor
+		//Error: doesn't exist visible constructor	
 		//TestSingleton ts = new TestSingleton();
 		
 		TestSingleton.getInstance().print();
