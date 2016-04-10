@@ -2,20 +2,20 @@ package patterns;
 
 public class PrototypeApp {
 	public static void main(String[] args) {
-		Humanly original = new Humanly(25, "Dean"); 
+		Human original = new Human(25, "Dean"); 
 		System.out.println(original);
 		
-		Humanly copy = (Humanly) original.copy(); 
+		Human copy = (Human) original.copy(); 
 		System.out.println(copy);
 		
 		//Copy with help interface "Copyable" 
 		HumanFactory factory = new HumanFactory(copy);
-		Humanly copy2 = factory.makeCopy();
+		Human copy2 = factory.makeCopy();
 		System.out.println(copy2); 
 		
 		//Copy with help factory
-		factory.setPrototype(new Humanly(30, "Mary"));
-		Humanly copy3 = factory.makeCopy();
+		factory.setPrototype(new Human(30, "Mary"));
+		Human copy3 = factory.makeCopy();
 		System.out.println(copy3);
 	}
 }
@@ -33,7 +33,7 @@ class Human implements Copyable{
 	}
 	@Override
 	public Object copy() {
-		Humanly copy =  new Humanly(age, name);
+		Human copy =  new Human(age, name);
 		return copy;
 	}
 	@Override
@@ -43,15 +43,15 @@ class Human implements Copyable{
 }
 
 class HumanFactory{
-	Humanly human;
+	Human human;
 	
-	public HumanFactory(Humanly human){
+	public HumanFactory(Human human){
 		setPrototype(human);
 	}
-	public void setPrototype(Humanly human){
+	public void setPrototype(Human human){
 		this.human = human;
 	}
-	Humanly makeCopy(){
-		return (Humanly)human.copy();
+	Human makeCopy(){
+		return (Human)human.copy();
 	}
 }
