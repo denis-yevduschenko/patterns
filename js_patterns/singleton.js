@@ -1,17 +1,17 @@
 var Universe;
-	(function () {
-		var instance;
-		Universe = function Universe() {
+(function () {
+	var instance;
+	Universe = function Universe() {
 		if (instance) {
 			return instance;
 		}
 		instance = this;
-		// добавить остальную функциональность
+		//РґРѕР±Р°РІРёС‚СЊ РѕСЃС‚Р°Р»СЊРЅСѓСЋ С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅРѕСЃС‚СЊ
 		this.start_time = 0;
 		this.bang = "Big";
 	};
 }());
-// проверка
+// РїСЂРѕРІРµСЂРєР°
 var uni = new Universe();
 var uni2 = new Universe();
 console.log(uni === uni2); // true
